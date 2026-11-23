@@ -1,9 +1,11 @@
 // Server-side reads from the Gno chain (vm/qeval, vm/qrender over ABCI
 // JSON-RPC), or from bundled fixtures when DATA_SOURCE=fixture. Every
 // reader returns Read<T> instead of throwing, so pages can show an honest
-// error state, and is cached for REVALIDATE_SECONDS.
+// error state. Fixture reads are cached for REVALIDATE_SECONDS; live reads
+// are not cached.
 
 import { cacheLife } from "next/cache";
+import { connection } from "next/server";
 import { REALMS, REVALIDATE_SECONDS, dataSource, serverRpcUrl } from "./config";
 import { parseLounge, parsePoll, parsePollList } from "./markdown";
 import type {
@@ -180,9 +182,25 @@ export function clampPage(offset: unknown, limit: unknown): { offset: number; li
   };
 }
 
+// Fixture reads never change, so they are cached (and prerendered). Live
+// reads skip the cache and wait for a request: a "use cache" entry is served
+// stale-while-revalidate, so the first load after a tx showed the old score.
+const FIXTURE_LIFE = { stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 };
+
+async function live<T>(read: () => Promise<T>): Promise<T> {
+  await connection();
+  return read();
+}
+
 export async function getLeaderboard(offset = 0, limit = MAX_PAGE_LIMIT): Promise<Read<Leaderboard>> {
+  return dataSource() === "fixture" ? cachedLeaderboard(offset, limit) : live(() => readLeaderboard(offset, limit));
+}
+async function cachedLeaderboard(offset: number, limit: number): Promise<Read<Leaderboard>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readLeaderboard(offset, limit);
+}
+async function readLeaderboard(offset: number, limit: number): Promise<Read<Leaderboard>> {
   const { offset: o, limit: l } = clampPage(offset, limit);
   if (dataSource() === "fixture") {
     const lb = leaderboardFixture as Leaderboard;
@@ -196,8 +214,14 @@ export async function getLeaderboard(offset = 0, limit = MAX_PAGE_LIMIT): Promis
 }
 
 export async function getProfile(address: string): Promise<Read<Profile>> {
+  return dataSource() === "fixture" ? cachedProfile(address) : live(() => readProfile(address));
+}
+async function cachedProfile(address: string): Promise<Read<Profile>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readProfile(address);
+}
+async function readProfile(address: string): Promise<Read<Profile>> {
   if (!isAddress(address)) return fail(new ReadError("parse", "Not a gno.land address"));
   if (dataSource() === "fixture") {
     const p = (profilesFixture as Record<string, Profile>)[address];
@@ -211,8 +235,14 @@ export async function getProfile(address: string): Promise<Read<Profile>> {
 }
 
 export async function getSources(): Promise<Read<SourcesPage>> {
+  return dataSource() === "fixture" ? cachedSources() : live(readSources);
+}
+async function cachedSources(): Promise<Read<SourcesPage>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readSources();
+}
+async function readSources(): Promise<Read<SourcesPage>> {
   if (dataSource() === "fixture") return ok(sourcesFixture as SourcesPage);
   try {
     const items: Source[] = [];
@@ -230,8 +260,14 @@ export async function getSources(): Promise<Read<SourcesPage>> {
 }
 
 export async function getParams(): Promise<Read<Params>> {
+  return dataSource() === "fixture" ? cachedParams() : live(readParams);
+}
+async function cachedParams(): Promise<Read<Params>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readParams();
+}
+async function readParams(): Promise<Read<Params>> {
   if (dataSource() === "fixture") return ok(paramsFixture as Params);
   try {
     return ok(await qevalJSON<Params>(REALMS.barkeep, "ParamsJSON()"));
@@ -245,8 +281,14 @@ export interface QuestboardState {
 }
 
 export async function getQuestboard(): Promise<Read<QuestboardState>> {
+  return dataSource() === "fixture" ? cachedQuestboard() : live(readQuestboard);
+}
+async function cachedQuestboard(): Promise<Read<QuestboardState>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readQuestboard();
+}
+async function readQuestboard(): Promise<Read<QuestboardState>> {
   if (dataSource() === "fixture") return ok({ completed: realmsFixture.questCompleted });
   try {
     return ok({ completed: Number(await qeval(REALMS.questboard, "Completed()")) });
@@ -261,8 +303,14 @@ export interface TownhallState {
 }
 
 export async function getTownhall(): Promise<Read<TownhallState>> {
+  return dataSource() === "fixture" ? cachedTownhall() : live(readTownhall);
+}
+async function cachedTownhall(): Promise<Read<TownhallState>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readTownhall();
+}
+async function readTownhall(): Promise<Read<TownhallState>> {
   try {
     const fixture = dataSource() === "fixture";
     const pages = realmsFixture.townhall.polls as Record<string, string>;
@@ -284,8 +332,14 @@ export interface LoungeState {
 }
 
 export async function getLounge(): Promise<Read<LoungeState>> {
+  return dataSource() === "fixture" ? cachedLounge() : live(readLounge);
+}
+async function cachedLounge(): Promise<Read<LoungeState>> {
   "use cache";
-  cacheLife({ stale: REVALIDATE_SECONDS, revalidate: REVALIDATE_SECONDS, expire: 300 });
+  cacheLife(FIXTURE_LIFE);
+  return readLounge();
+}
+async function readLounge(): Promise<Read<LoungeState>> {
   try {
     if (dataSource() === "fixture") {
       return ok({ signatures: realmsFixture.lounge.signatures, entries: parseLounge(realmsFixture.lounge.render) });
