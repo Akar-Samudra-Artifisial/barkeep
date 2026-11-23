@@ -1,0 +1,1296 @@
+{
+  "g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p": {
+    "address": "g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p",
+    "score": 469,
+    "tier": "Patron",
+    "total": 469.9,
+    "base": 270.058,
+    "multipliers": {
+      "identity": 1.2,
+      "maturity": 1,
+      "diversity": 1.45
+    },
+    "named": true,
+    "activeCategories": 4,
+    "categories": {
+      "governance": 6.522,
+      "contribution": 100,
+      "defi": 0,
+      "building": 144,
+      "community": 19.536
+    },
+    "firstSeen": 1792593495,
+    "attestations": 41,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 6.522,
+        "weighted": 6.522,
+        "lastTs": 1795436782
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "category": "building",
+        "tier": "verified",
+        "points": 96,
+        "weighted": 144,
+        "lastTs": 1795446114
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 100,
+        "weighted": 100,
+        "lastTs": 1795448483
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "category": "community",
+        "tier": "verified",
+        "points": 24.421,
+        "weighted": 19.536,
+        "lastTs": 1795437252
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795448483
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1795446114
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1795437252
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795436782
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795229699
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1795183297
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795080875
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795017947
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794934344
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794870054
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1a0tkny9wp86zy4590gavuus03kvdmu8r20kynj": {
+    "address": "g1a0tkny9wp86zy4590gavuus03kvdmu8r20kynj",
+    "score": 309,
+    "tier": "Patron",
+    "total": 309.277,
+    "base": 177.746,
+    "multipliers": {
+      "identity": 1.2,
+      "maturity": 1,
+      "diversity": 1.45
+    },
+    "named": true,
+    "activeCategories": 4,
+    "categories": {
+      "governance": 12,
+      "contribution": 90,
+      "defi": 10,
+      "building": 65.746,
+      "community": 0
+    },
+    "firstSeen": 1792848360,
+    "attestations": 38,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 12,
+        "weighted": 12,
+        "lastTs": 1795369919
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "category": "defi",
+        "tier": "verified",
+        "points": 20,
+        "weighted": 10,
+        "lastTs": 1795358310
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 90,
+        "weighted": 90,
+        "lastTs": 1795351488
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "category": "building",
+        "tier": "verified",
+        "points": 43.831,
+        "weighted": 65.746,
+        "lastTs": 1795357828
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795369919
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1795358310
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1795357828
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795351488
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795138607
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1795073821
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795046629
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794935470
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794894566
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1794803336
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1y65s9j9vg7h80p3k2w4hhq459e7wxf2hm2t4gq": {
+    "address": "g1y65s9j9vg7h80p3k2w4hhq459e7wxf2hm2t4gq",
+    "score": 325,
+    "tier": "Patron",
+    "total": 325.397,
+    "base": 250.306,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1.3
+    },
+    "named": false,
+    "activeCategories": 3,
+    "categories": {
+      "governance": 0,
+      "contribution": 48.844,
+      "defi": 0,
+      "building": 192,
+      "community": 9.462
+    },
+    "firstSeen": 1793022308,
+    "attestations": 25,
+    "buckets": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "category": "building",
+        "tier": "verified",
+        "points": 128,
+        "weighted": 192,
+        "lastTs": 1795267572
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 48.844,
+        "weighted": 48.844,
+        "lastTs": 1795276646
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "category": "community",
+        "tier": "verified",
+        "points": 11.828,
+        "weighted": 9.462,
+        "lastTs": 1795278641
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1795278641
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795276646
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1795267572
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1795115226
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794976615
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794828831
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794827440
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794674965
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794528935
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794377611
+      }
+    ],
+    "now": 1795456800
+  },
+  "g14swxhjxxhehj60n72rpfetvrmrlgac93l2wcvj": {
+    "address": "g14swxhjxxhehj60n72rpfetvrmrlgac93l2wcvj",
+    "score": 127,
+    "tier": "Patron",
+    "total": 127.022,
+    "base": 81.425,
+    "multipliers": {
+      "identity": 1.2,
+      "maturity": 1,
+      "diversity": 1.3
+    },
+    "named": true,
+    "activeCategories": 3,
+    "categories": {
+      "governance": 14,
+      "contribution": 31.425,
+      "defi": 0,
+      "building": 0,
+      "community": 36
+    },
+    "firstSeen": 1793189933,
+    "attestations": 27,
+    "buckets": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "category": "community",
+        "tier": "verified",
+        "points": 45,
+        "weighted": 36,
+        "lastTs": 1795438338
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 31.425,
+        "weighted": 31.425,
+        "lastTs": 1795447197
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 14,
+        "weighted": 14,
+        "lastTs": 1795435329
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795447197
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1795438338
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795435329
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795268051
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1795154862
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795090832
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794929255
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794877972
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794754945
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794705830
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1cjt0zcal6hwe57sw4d3kcsx7vu52fqf03tyhj0": {
+    "address": "g1cjt0zcal6hwe57sw4d3kcsx7vu52fqf03tyhj0",
+    "score": 105,
+    "tier": "Patron",
+    "total": 105.8,
+    "base": 92,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1.15
+    },
+    "named": false,
+    "activeCategories": 2,
+    "categories": {
+      "governance": 0,
+      "contribution": 80,
+      "defi": 12,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1793368151,
+    "attestations": 20,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 80,
+        "weighted": 80,
+        "lastTs": 1795177958
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "category": "defi",
+        "tier": "verified",
+        "points": 24,
+        "weighted": 12,
+        "lastTs": 1795192128
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1795192128
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795177958
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1795020294
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794925098
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1794853875
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1794701389
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794674173
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1794534783
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794409635
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+        "kind": "swap.settled",
+        "units": 2,
+        "ts": 1794361551
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1u44rwehg4lkz4tn6ymwalwfgrpkc7k9zftpj5r": {
+    "address": "g1u44rwehg4lkz4tn6ymwalwfgrpkc7k9zftpj5r",
+    "score": 85,
+    "tier": "Regular",
+    "total": 85.37,
+    "base": 74.235,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1.15
+    },
+    "named": false,
+    "activeCategories": 2,
+    "categories": {
+      "governance": 4.235,
+      "contribution": 70,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1793716166,
+    "attestations": 12,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 4.235,
+        "weighted": 4.235,
+        "lastTs": 1795359008
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 70,
+        "weighted": 70,
+        "lastTs": 1795349349
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795359008
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795349349
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795080952
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794945475
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794813693
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794549439
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794543616
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794271355
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794122907
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1793987796
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1v9k2pzemhwaa06gl5evmmyap58w79qpr3h66ea": {
+    "address": "g1v9k2pzemhwaa06gl5evmmyap58w79qpr3h66ea",
+    "score": 44,
+    "tier": "Regular",
+    "total": 44.958,
+    "base": 32.579,
+    "multipliers": {
+      "identity": 1.2,
+      "maturity": 1,
+      "diversity": 1.15
+    },
+    "named": true,
+    "activeCategories": 2,
+    "categories": {
+      "governance": 3.235,
+      "contribution": 0,
+      "defi": 0,
+      "building": 0,
+      "community": 29.344
+    },
+    "firstSeen": 1793880076,
+    "attestations": 12,
+    "buckets": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "category": "community",
+        "tier": "verified",
+        "points": 36.68,
+        "weighted": 29.344,
+        "lastTs": 1795102597
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 3.235,
+        "weighted": 3.235,
+        "lastTs": 1795102816
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795102816
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1795102597
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794927767
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794755581
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794703943
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794573130
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794419975
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794297422
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794237960
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+        "kind": "meetup.hosted",
+        "units": 5,
+        "ts": 1794069790
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1r9rn97ef90q0rv259kwf7q03mzct4l77ncqc3y": {
+    "address": "g1r9rn97ef90q0rv259kwf7q03mzct4l77ncqc3y",
+    "score": 45,
+    "tier": "Regular",
+    "total": 45.85,
+    "base": 45.85,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1
+    },
+    "named": false,
+    "activeCategories": 1,
+    "categories": {
+      "governance": 0,
+      "contribution": 45.85,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1793967298,
+    "attestations": 14,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 45.85,
+        "weighted": 45.85,
+        "lastTs": 1795004644
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "category": "defi",
+        "tier": "revoked",
+        "points": 91.7,
+        "weighted": 0,
+        "lastTs": 1795005936
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1795005936
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795004644
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794884476
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794763917
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794760511
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794620777
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794496415
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794487793
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794358816
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794234053
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1exk844tlwh89dcy3e7ufxhfqpl0dnkn6m2sv2u": {
+    "address": "g1exk844tlwh89dcy3e7ufxhfqpl0dnkn6m2sv2u",
+    "score": 0,
+    "tier": "Stranger",
+    "total": 0,
+    "base": 0,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1
+    },
+    "named": false,
+    "activeCategories": 0,
+    "categories": {
+      "governance": 0,
+      "contribution": 0,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1794062873,
+    "attestations": 3,
+    "buckets": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "category": "defi",
+        "tier": "revoked",
+        "points": 42.426,
+        "weighted": 0,
+        "lastTs": 1794143743
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794143743
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794115179
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+        "kind": "faucet.claim",
+        "units": 20,
+        "ts": 1794062873
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1xh9epvmdecsvwpvu2lkef9x2zsn3h4jcrhsjr8": {
+    "address": "g1xh9epvmdecsvwpvu2lkef9x2zsn3h4jcrhsjr8",
+    "score": 58,
+    "tier": "Regular",
+    "total": 58.37,
+    "base": 50.757,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1.15
+    },
+    "named": false,
+    "activeCategories": 2,
+    "categories": {
+      "governance": 2.757,
+      "contribution": 0,
+      "defi": 0,
+      "building": 48,
+      "community": 0
+    },
+    "firstSeen": 1794411010,
+    "attestations": 7,
+    "buckets": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "category": "building",
+        "tier": "verified",
+        "points": 32,
+        "weighted": 48,
+        "lastTs": 1795263409
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 2.757,
+        "weighted": 2.757,
+        "lastTs": 1795265434
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795265434
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1795263409
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794984917
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794834235
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794691536
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794411754
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+        "kind": "pr.merged",
+        "units": 8,
+        "ts": 1794411010
+      }
+    ],
+    "now": 1795456800
+  },
+  "g19wk0sh2h7as3gkwwhdpkhmz83vxadk4nn0k2ey": {
+    "address": "g19wk0sh2h7as3gkwwhdpkhmz83vxadk4nn0k2ey",
+    "score": 27,
+    "tier": "Regular",
+    "total": 27.578,
+    "base": 27.578,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 1,
+      "diversity": 1
+    },
+    "named": false,
+    "activeCategories": 1,
+    "categories": {
+      "governance": 0,
+      "contribution": 27.578,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1794665634,
+    "attestations": 9,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 27.578,
+        "weighted": 27.578,
+        "lastTs": 1795354044
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "category": "community",
+        "tier": "unverified",
+        "points": 6,
+        "weighted": 0,
+        "lastTs": 1795356161
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "kind": "round.played",
+        "units": 1,
+        "ts": 1795356161
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795354044
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "kind": "round.played",
+        "units": 1,
+        "ts": 1795224922
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "kind": "round.played",
+        "units": 1,
+        "ts": 1795078721
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795019529
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "kind": "round.played",
+        "units": 1,
+        "ts": 1794934894
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "kind": "round.played",
+        "units": 1,
+        "ts": 1794815610
+      },
+      {
+        "source": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+        "kind": "round.played",
+        "units": 1,
+        "ts": 1794669167
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1794665634
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1n9v96amyvn9r9y2amn776p8ggdwenpksrwl9xj": {
+    "address": "g1n9v96amyvn9r9y2amn776p8ggdwenpksrwl9xj",
+    "score": 5,
+    "tier": "Stranger",
+    "total": 5.58,
+    "base": 6,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 0.93,
+      "diversity": 1
+    },
+    "named": false,
+    "activeCategories": 1,
+    "categories": {
+      "governance": 6,
+      "contribution": 0,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1794935528,
+    "attestations": 6,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 6,
+        "weighted": 6,
+        "lastTs": 1795454980
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795454980
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795351978
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795233705
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795142792
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795037852
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1794935528
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1kmkp94qavujhz26238qchd25w0pjqgrzslcfa5": {
+    "address": "g1kmkp94qavujhz26238qchd25w0pjqgrzslcfa5",
+    "score": 10,
+    "tier": "Regular",
+    "total": 10.06,
+    "base": 12,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 0.729,
+      "diversity": 1.15
+    },
+    "named": false,
+    "activeCategories": 2,
+    "categories": {
+      "governance": 2,
+      "contribution": 10,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1795179599,
+    "attestations": 3,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "category": "governance",
+        "tier": "verified",
+        "points": 2,
+        "weighted": 2,
+        "lastTs": 1795450494
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 10,
+        "weighted": 10,
+        "lastTs": 1795189568
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795450494
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795189568
+      },
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+        "kind": "vote.cast",
+        "units": 1,
+        "ts": 1795179599
+      }
+    ],
+    "now": 1795456800
+  },
+  "g1244f055q4hqjk0zeedsrcmelvyfvtkemur02tm": {
+    "address": "g1244f055q4hqjk0zeedsrcmelvyfvtkemur02tm",
+    "score": 5,
+    "tier": "Stranger",
+    "total": 5.81,
+    "base": 10,
+    "multipliers": {
+      "identity": 1,
+      "maturity": 0.581,
+      "diversity": 1
+    },
+    "named": false,
+    "activeCategories": 1,
+    "categories": {
+      "governance": 0,
+      "contribution": 10,
+      "defi": 0,
+      "building": 0,
+      "community": 0
+    },
+    "firstSeen": 1795358072,
+    "attestations": 1,
+    "buckets": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "category": "contribution",
+        "tier": "verified",
+        "points": 10,
+        "weighted": 10,
+        "lastTs": 1795358072
+      }
+    ],
+    "recent": [
+      {
+        "source": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+        "kind": "quest.completed",
+        "units": 10,
+        "ts": 1795358072
+      }
+    ],
+    "now": 1795456800
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "halfLifeSeconds": 2592000,
+  "maturityPeriodSeconds": 604800,
+  "maturityStart": 0.5,
+  "identityBonus": 1.2,
+  "diversityStep": 0.15,
+  "diversityMax": 1.6,
+  "defaultWeight": 1,
+  "maxWeight": 3,
+  "defaultCapPoints": 100,
+  "maxUnitsPerAttest": 100,
+  "maxBuckets": 32,
+  "maxRecent": 10,
+  "maxTop": 50,
+  "tiers": {
+    "Regular": 10,
+    "Patron": 100,
+    "Legend": 500
+  },
+  "paused": false,
+  "admin": "g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p"
+}

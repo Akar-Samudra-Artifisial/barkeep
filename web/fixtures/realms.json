@@ -1,0 +1,16 @@
+{
+  "questCompleted": 58,
+  "pollCount": 3,
+  "townhall": {
+    "list": "# Town Hall\n\nPolls by patrons of the tavern. Opening a poll needs a [Barkeep](/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/barkeep/v0) score of 20; every vote earns governance renown.\n\n| # | Question | Votes |\n|---|---|---|\n| [3](:poll/3) | Raise the workshop cap to 200 points? | 5 |\n| [2](:poll/2) | Next quest board theme | 7 |\n| [1](:poll/1) | Should the cellar open on Sundays? | 9 |\n",
+    "polls": {
+      "1": "# Poll 1\n\n**Should the cellar open on Sundays?**\n\nOpened by [g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p](/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/barkeep/v0:u/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p) at block 1356120\n\n| # | Option | Votes |\n|---|---|---|\n| 0 | Yes | 3 |\n| 1 | No | 3 |\n| 2 | Only after noon | 3 |\n\n[All polls](:)\n",
+      "2": "# Poll 2\n\n**Next quest board theme**\n\nOpened by [g1y65s9j9vg7h80p3k2w4hhq459e7wxf2hm2t4gq](/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/barkeep/v0:u/g1y65s9j9vg7h80p3k2w4hhq459e7wxf2hm2t4gq) at block 1361844\n\n| # | Option | Votes |\n|---|---|---|\n| 0 | Lost tankards | 2 |\n| 1 | Rat king | 3 |\n| 2 | Bard contest | 2 |\n\n[All polls](:)\n",
+      "3": "# Poll 3\n\n**Raise the workshop cap to 200 points?**\n\nOpened by [g14swxhjxxhehj60n72rpfetvrmrlgac93l2wcvj](/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/barkeep/v0:u/g14swxhjxxhehj60n72rpfetvrmrlgac93l2wcvj) at block 1366002\n\n| # | Option | Votes |\n|---|---|---|\n| 0 | Raise it | 3 |\n| 1 | Keep 150 | 2 |\n\n[All polls](:)\n"
+    }
+  },
+  "lounge": {
+    "render": "# The Lounge\n\nVIP guestbook for Regulars and above, gated by [Barkeep](/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/barkeep/v0).\n\n| Block | Patron | Tier | Message |\n|---|---|---|---|\n| 1366950 | g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p | Patron | First round is on me tonight. |\n| 1365410 | g1a0tkny9wp86zy4590gavuus03kvdmu8r20kynj | Patron | Workshop is open, bring your own hammer. |\n| 1362288 | g14swxhjxxhehj60n72rpfetvrmrlgac93l2wcvj | Patron | Vote on the cellar hours before Friday. |\n| 1359001 | g1u44rwehg4lkz4tn6ymwalwfgrpkc7k9zftpj5r | Regular | Made Regular. The stout is worth it. |\n",
+    "signatures": 4
+  }
+}

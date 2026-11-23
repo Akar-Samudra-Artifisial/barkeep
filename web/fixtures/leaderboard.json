@@ -1,0 +1,87 @@
+{
+  "total": 13,
+  "offset": 0,
+  "profiles": 14,
+  "attestations": 218,
+  "items": [
+    {
+      "rank": 1,
+      "address": "g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p",
+      "score": 469,
+      "tier": "Patron"
+    },
+    {
+      "rank": 2,
+      "address": "g1y65s9j9vg7h80p3k2w4hhq459e7wxf2hm2t4gq",
+      "score": 325,
+      "tier": "Patron"
+    },
+    {
+      "rank": 3,
+      "address": "g1a0tkny9wp86zy4590gavuus03kvdmu8r20kynj",
+      "score": 309,
+      "tier": "Patron"
+    },
+    {
+      "rank": 4,
+      "address": "g14swxhjxxhehj60n72rpfetvrmrlgac93l2wcvj",
+      "score": 127,
+      "tier": "Patron"
+    },
+    {
+      "rank": 5,
+      "address": "g1cjt0zcal6hwe57sw4d3kcsx7vu52fqf03tyhj0",
+      "score": 105,
+      "tier": "Patron"
+    },
+    {
+      "rank": 6,
+      "address": "g1u44rwehg4lkz4tn6ymwalwfgrpkc7k9zftpj5r",
+      "score": 85,
+      "tier": "Regular"
+    },
+    {
+      "rank": 7,
+      "address": "g1xh9epvmdecsvwpvu2lkef9x2zsn3h4jcrhsjr8",
+      "score": 58,
+      "tier": "Regular"
+    },
+    {
+      "rank": 8,
+      "address": "g1r9rn97ef90q0rv259kwf7q03mzct4l77ncqc3y",
+      "score": 45,
+      "tier": "Regular"
+    },
+    {
+      "rank": 9,
+      "address": "g1v9k2pzemhwaa06gl5evmmyap58w79qpr3h66ea",
+      "score": 44,
+      "tier": "Regular"
+    },
+    {
+      "rank": 10,
+      "address": "g19wk0sh2h7as3gkwwhdpkhmz83vxadk4nn0k2ey",
+      "score": 27,
+      "tier": "Regular"
+    },
+    {
+      "rank": 11,
+      "address": "g1kmkp94qavujhz26238qchd25w0pjqgrzslcfa5",
+      "score": 10,
+      "tier": "Regular"
+    },
+    {
+      "rank": 12,
+      "address": "g1244f055q4hqjk0zeedsrcmelvyfvtkemur02tm",
+      "score": 5,
+      "tier": "Stranger"
+    },
+    {
+      "rank": 13,
+      "address": "g1n9v96amyvn9r9y2amn776p8ggdwenpksrwl9xj",
+      "score": 5,
+      "tier": "Stranger"
+    }
+  ],
+  "now": 1795456800
+}

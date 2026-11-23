@@ -1,0 +1,97 @@
+{
+  "total": 7,
+  "offset": 0,
+  "items": [
+    {
+      "id": 1,
+      "path": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+      "category": "contribution",
+      "desc": "Quests for adventurers",
+      "tier": "verified",
+      "weight": 1000,
+      "effectiveWeight": 1000,
+      "capPoints": 100,
+      "paused": false,
+      "registeredAt": 1792519200,
+      "attestations": 58
+    },
+    {
+      "id": 2,
+      "path": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+      "category": "governance",
+      "desc": "Town hall polls: one attestation per vote",
+      "tier": "verified",
+      "weight": 1000,
+      "effectiveWeight": 1000,
+      "capPoints": 100,
+      "paused": false,
+      "registeredAt": 1792605600,
+      "attestations": 55
+    },
+    {
+      "id": 3,
+      "path": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/workshop",
+      "category": "building",
+      "desc": "Merged pull requests in the tavern workshop",
+      "tier": "verified",
+      "weight": 1500,
+      "effectiveWeight": 1500,
+      "capPoints": 150,
+      "paused": false,
+      "registeredAt": 1792951200,
+      "attestations": 39
+    },
+    {
+      "id": 4,
+      "path": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/hearth",
+      "category": "community",
+      "desc": "Hosts and helpers of tavern meetups",
+      "tier": "verified",
+      "weight": 800,
+      "effectiveWeight": 800,
+      "capPoints": 100,
+      "paused": false,
+      "registeredAt": 1793296800,
+      "attestations": 26
+    },
+    {
+      "id": 5,
+      "path": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/ledgerswap",
+      "category": "defi",
+      "desc": "Swaps settled on the tavern exchange, one per day",
+      "tier": "verified",
+      "weight": 500,
+      "effectiveWeight": 500,
+      "capPoints": 50,
+      "paused": true,
+      "registeredAt": 1793642400,
+      "attestations": 22
+    },
+    {
+      "id": 6,
+      "path": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/dicegame",
+      "category": "community",
+      "desc": "Rounds of dice at the corner table",
+      "tier": "unverified",
+      "weight": 0,
+      "effectiveWeight": 0,
+      "capPoints": 100,
+      "paused": false,
+      "registeredAt": 1794938400,
+      "attestations": 6
+    },
+    {
+      "id": 7,
+      "path": "gno.land/r/g10d443ne4w7k8cevn7at5anl39c9trkqtmzr4pg/faucetfarm",
+      "category": "defi",
+      "desc": "Points for every faucet claim",
+      "tier": "revoked",
+      "weight": 1000,
+      "effectiveWeight": 0,
+      "capPoints": 100,
+      "paused": false,
+      "registeredAt": 1793901600,
+      "attestations": 12
+    }
+  ]
+}
