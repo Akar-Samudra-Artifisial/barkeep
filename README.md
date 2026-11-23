@@ -5,6 +5,7 @@
 Cross-realm reputation scores for Gno.land (RFC gnolang/gno#3350), built for the Gnome Tavern hackathon.
 
 Status: core package, score realm and three demo realms done and tested locally. A dev build is parked on Onyx waiting for package approval (see [deployments/onyx-dev1.md](deployments/onyx-dev1.md)).
+Dashboard: https://barkeep-eight.vercel.app (demo data until the realms are live; auto-deployed from `main`, app root `web/`).
 See [docs/ALGORITHM.md](docs/ALGORITHM.md) for formulas, parameters and measured cost per attestation.
 
 ## Realms and packages
