@@ -56,15 +56,18 @@ Other reads: `ScoreOf`, `TierOf`, `CategoryScoreOf`, `HasMinCategoryScore`, `Sou
 
 ## Rough cost of the demo calls
 
-Measured with `gno test -v` (difference between filetests with and without the call; gas includes some filetest overhead). Deposit is 100 ugnot per byte, paid by the signer.
+Filetest gas is measured with `gno test -v` (difference between filetests with and without the call;
+includes some filetest overhead) and leaves out package loading, so it is **not** what a transaction
+pays. On-chain gas is from a local gnodev chain (same toolchain as Onyx); "—" means not measured
+separately. Deposit is 100 ugnot per byte, paid by the signer.
 
-| Call | Gas | Storage |
-|---|---|---|
-| `townhall.CreatePoll` (3 options) | ~1.2M | +3.9 KB (~0.39 GNOT) |
-| `townhall.Vote`, voter new to Barkeep | ~0.85M | +6.9 KB (~0.69 GNOT) |
-| `townhall.Vote`, voter already has a profile | ~1.0M | +3.5 KB (~0.35 GNOT) |
-| `lounge.Sign`, first entry | ~1.0M | +1.0 KB (~0.10 GNOT) |
-| `lounge.Sign`, next entry | ~0.8M | +0.7 KB (~0.07 GNOT) |
+| Call | Gas (filetest only) | Gas on chain (gnodev) | Storage |
+|---|---|---|---|
+| `townhall.CreatePoll` (3 options) | ~1.2M | — | +3.9 KB (~0.39 GNOT) |
+| `townhall.Vote`, voter new to Barkeep | ~0.85M | — | +6.9 KB (~0.69 GNOT) |
+| `townhall.Vote`, voter already has a profile | ~1.0M | 20.6–21.2M | +3.5 KB (~0.35 GNOT) |
+| `lounge.Sign`, first entry | ~1.0M | — | +1.0 KB (~0.10 GNOT) |
+| `lounge.Sign`, next entry | ~0.8M | 15.2M | +0.7 KB (~0.07 GNOT) |
 
 On a real chain each call also pays to load packages from the store, mostly `r/sys/users`. On a
 local gnodev chain, calls that touch Barkeep used 15–26M gas (see

@@ -47,7 +47,7 @@ What Barkeep defends against, how, and what it does not. Constants are from
 | Buy the identity bonus | ×1.2 only | The cost of a name is set by the registrar, not Barkeep; where names are cheap the bonus is cheap. |
 | Verified source turns malicious | Admin revokes → weight 0 at once | Until the admin acts, it can max every subject's bucket (cap × weight, up to 1,000,000 × 3.0 if the admin set that). It can attest any address; subjects do not consent. |
 | Revoked member keeps a leaderboard slot | Reads (`LeaderboardJSON`, Render) recompute scores | The slot can be held for up to `MaxTop / TopRefreshBatch` = 25 newcomer attestations. |
-| Exhaust gas in `Attest` | Bounded loops: 32 buckets, 2+2 leaderboard re-scores | Each call still loads `r/sys/users` (~8 M gas); a new subject costs 22–26 M gas. |
+| Exhaust gas in `Attest` | Bounded loops: 32 buckets, 2+2 leaderboard re-scores | Each call still loads `r/sys/users` (~8 M gas); a new subject costs 22–26 M gas with a full top-50 board (~16–17 M with ~10 profiles). |
 | Markdown/link injection via source description | `ValidDesc` (no markup chars, no URLs, ≤140 bytes) + `sanitize.TableCell` in Render | None known. |
 
 ## Known weaknesses

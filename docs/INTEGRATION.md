@@ -168,7 +168,8 @@ graph, mainly `r/sys/users`, and is paid on every call:
 |---|---|
 | questboard `Complete`, repeat subject | ~16 M |
 | townhall `Vote`, voter with a profile | ~21 M |
-| Attest for a new subject (questboard `Complete`, board 35–56 profiles) | 22–26 M |
+| Attest for a new subject (questboard `Complete`, small board, ~10 profiles) | ~16–17 M |
+| Attest for a new subject (questboard `Complete`, board 35–56 profiles, top-50 full) | 22–26 M |
 | lounge `Sign` (read-only gate) | ~15 M |
 
 - gnokey: `-gas-wanted 50000000 -gas-fee 50000ugnot` covers every Barkeep call measured.

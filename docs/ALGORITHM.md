@@ -118,6 +118,7 @@ charges that on every transaction, so the numbers below are the ones to budget f
 | Loading barkeep alone (`maketx run` reading `IsPaused()`) | 9.1 M | — |
 | Loading `r/sys/users` alone | 8.4 M | — |
 | questboard `Complete`, repeat subject | 16–17 M | +6 to +650 B |
+| questboard `Complete`, new subject, small board (~10 profiles) | 16.2–16.9 M | ~+5 KB |
 | questboard `Complete`, new subject, board 35–50 | 22–24 M | ~+5 KB |
 | questboard `Complete`, new subject, full board (56 profiles) | 24–26 M | ~+5 KB |
 | townhall `Vote`, voter with a profile | 20.6–21.2 M | +3.5 KB |
