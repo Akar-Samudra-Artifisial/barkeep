@@ -1,0 +1,16 @@
+{
+  "chainId": "dev",
+  "realmBase": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/{name}/v0",
+  "personas": [
+    {"key": "ava", "address": "g12q25fc2q7238s7tuecgyejp7xyq34hqx4swnul", "name": "nym-avalanche101", "label": "demo persona", "score": 70, "tier": "Regular"},
+    {"key": "bram", "address": "g1yhjy6xdkmz6wtw4thqahlu4l84s0ktm6usfdrn", "name": "nym-brambles102", "label": "demo persona", "score": 56, "tier": "Regular"},
+    {"key": "cora", "address": "g184k3t7qv96zrty0ak7qs6r4hs4utkhlvk5dkdz", "name": "", "label": "demo persona", "score": 35, "tier": "Regular"},
+    {"key": "dax", "address": "g1yja02nw95dg9qcmmn0s43cm4nss8fugr3vuyrn", "name": "nym-daxworth104", "label": "demo persona", "score": 35, "tier": "Regular"},
+    {"key": "elin", "address": "g1pph7tmntukdqdzafw6z56e2l6twdvjf2d5fasj", "name": "", "label": "demo persona", "score": 23, "tier": "Regular"},
+    {"key": "finn", "address": "g1h4804w05nagk0c7vvs285rf0y9flt2jk7mfk4j", "name": "nym-finnegan106", "label": "demo persona", "score": 22, "tier": "Regular"},
+    {"key": "gwen", "address": "g1cuzdgkqu3nydxmx67gk57rltsynzygw66el3g4", "name": "", "label": "demo persona", "score": 17, "tier": "Regular"},
+    {"key": "hugo", "address": "g1vkl8dhpfruysdu0s0tt05qdg6uhaf4a443889p", "name": "", "label": "demo persona", "score": 12, "tier": "Regular"},
+    {"key": "iris", "address": "g1mx5j7y2n6uqz5pg8j84zskwhkgw0ehaw9rx4q3", "name": "nym-irisbloom109", "label": "demo persona", "score": 7, "tier": "Stranger"},
+    {"key": "jules", "address": "g1flhmwhwj3nt4mm8uwpux3l72zljumy7dy3wfg9", "name": "", "label": "demo persona", "score": 12, "tier": "Regular"}
+  ]
+}

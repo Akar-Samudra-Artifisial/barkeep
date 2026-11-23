@@ -69,19 +69,31 @@ Bucket eviction (profile full): buckets rank weightless first, then by weighted 
 (`weight × min(decay, cap)`), then raw value; the new bucket replaces the lowest only if it ranks
 higher, so unverified spam cannot evict verified history.
 
-Leaderboard: up to 50 snapshots, recomputed on every read. When the board is full and a newcomer
-competes for a slot, all 50 entries are recomputed first if an admin changed a source's tier,
-weight or cap since the last refresh, or if the last refresh is ≥ 1 hour old
-(`TopRefreshInterval`); otherwise snapshots are trusted (30-day half-life ⇒ ≤ ~0.1% drift per hour).
-So revoked or decayed entries cannot hold a slot.
+Leaderboard: up to 50 snapshots, recomputed on every read. A member's own attestation refreshes
+its snapshot. When the board is full and a newcomer competes for a slot, the work per call is
+bounded:
 
-Known limit: a snapshot can also be too *low* for up to one hour. Barkeep is not told when a
-member registers a name in `r/sys/users` (identity ×1.2) or when the maturity ramp lifts their
-score, so `topDirty` is not set in those cases. Within that window a newcomer can evict a member
-whose fresh score would have kept the slot. A member's own attestations refresh their own
-snapshot, the displayed order is always recomputed, and the next hourly refresh corrects it.
-Watching name registrations would need a hook into `r/sys/users`. Recomputing on every
-attestation would raise Attest gas from ~1.3M to ~14M. Neither is worth it for a display list.
+1. Rolling refresh: `TopRefreshBatch` (2) snapshots are recomputed in rotation, so every entry is
+   refreshed within 25 newcomer attestations. This is how a revoked or decayed entry with a
+   stale-high snapshot loses its slot.
+2. Confirmed eviction: the lowest snapshot is re-scored before it is replaced (up to
+   `TopConfirmMax` = 2 candidates). A member is evicted only by a freshly computed score, so a
+   snapshot that is too low (name registered, maturity ramp) never costs a slot.
+
+Consequences of the bound:
+
+- If the re-scored candidate turns out higher than its snapshot, and the newcomer no longer
+  beats the next-lowest entry within the `TopConfirmMax` budget, the newcomer is rejected for
+  that attestation. This is safe: its own profile is stored, and its next attestation competes
+  again with the corrected snapshots, so it gets in if its score really is higher.
+- A revoke or pause does not evict at once. The revoked entry keeps its stale-high snapshot until
+  the rolling refresh reaches it, which can take up to `MaxTop / TopRefreshBatch` = 25 newcomer
+  attestations. Reads (`LeaderboardJSON`, Render) recompute scores, so the shown score is already
+  correct; only the slot is held longer.
+
+A full refresh of all 50 entries was tried first and dropped: on a gnodev chain it cost ~74M
+gas (each score reads `r/sys/users`), and a refresh that ran out of gas rolled back its own
+"done" flag, so every later newcomer hit the same wall.
 
 ## Cost per Attest (measured, local `gno test`, toolchain `fc79041f4`)
 
@@ -93,9 +105,27 @@ gas price on Onyx = 1 ugnot per 1,000 gas.
 |---|---|---|---|
 | First attestation for a new subject | +5,114 to +5,809 | ~0.75–0.98 M | ~0.51–0.58 GNOT |
 | Repeat attestation, same subject and source | +627 | ~0.59 M | ~0.063 GNOT |
-| New subject, board full, snapshots trusted | +5,302 | ~1.27 M | ~0.53 GNOT |
-| New subject, board full, full refresh (≤ 1×/hour or after admin change) | +5,622 | ~14.4 M | ~0.56 GNOT (+0.014 GNOT fee) |
 | Admin `SetSourceTier` verify | +976 | ~1.16 M | ~0.098 GNOT |
+
+These filetest gas numbers leave out the cost of loading packages from the store. A real chain
+charges that on every transaction, so the numbers below are the ones to budget for.
+
+### On a chain (local gnodev, same toolchain, `scripts/seed`)
+
+| Call | gas used | storage |
+|---|---|---|
+| Baseline: `r/demo/counter.Increment` | 1.68 M | — |
+| Loading barkeep alone (`maketx run` reading `IsPaused()`) | 9.1 M | — |
+| Loading `r/sys/users` alone | 8.4 M | — |
+| questboard `Complete`, repeat subject | 16–17 M | +6 to +650 B |
+| questboard `Complete`, new subject, board 35–50 | 22–24 M | ~+5 KB |
+| questboard `Complete`, new subject, full board (56 profiles) | 24–26 M | ~+5 KB |
+| townhall `Vote`, voter with a profile | 20.6–21.2 M | +3.5 KB |
+| lounge `Sign` | 15.2 M | +0.7 KB |
+
+Most of the cost is loading the import graph, mainly `r/sys/users` (it imports `regexp` and
+`gov/dao`). That cost is paid on every call. Use `-gas-wanted 50000000` with `-gas-fee 50000ugnot`
+(0.05 GNOT at 1 ugnot per 1,000 gas). Adena simulates the call and sets gas itself.
 
 The source realm adds +10 bytes in this demo. The deposit is paid by the transaction signer
 (the end user), including the bytes written in barkeep. Adena `DoContract` has no deposit field,

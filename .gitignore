@@ -6,4 +6,5 @@ node_modules/
 *.log
 .DS_Store
 build/
+scripts/seed/.keys/
 .taste-skill/

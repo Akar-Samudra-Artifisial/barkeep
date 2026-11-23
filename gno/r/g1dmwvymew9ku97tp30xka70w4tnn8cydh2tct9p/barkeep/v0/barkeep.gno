@@ -32,7 +32,8 @@ const (
 	MaxAdminLog  = 20  // admin log entries kept on chain
 	MaxPageLimit = 50  // largest page served by the JSON readers
 
-	TopRefreshInterval = 3600 // seconds between full leaderboard refreshes
+	TopRefreshBatch = 2 // leaderboard snapshots refreshed per newcomer on a full board
+	TopConfirmMax   = 2 // eviction candidates re-scored before one is replaced
 )
 
 type source struct {
@@ -106,11 +107,10 @@ var (
 	verifiedCount int             // sources currently in TierVerified
 	profiles      = avl.NewTree() // address string -> *profile
 
-	top            []topEntry
-	topDirty       bool  // a source changed tier, weight or cap since the last refresh
-	topRefreshedAt int64 // unix seconds of the last full refresh
-	attestations   int64
-	adminLog       []logEntry
+	top          []topEntry
+	topCursor    int // next snapshot refreshed by the rolling refresh
+	attestations int64
+	adminLog     []logEntry
 )
 
 func idKey(id int) string {

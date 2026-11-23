@@ -136,9 +136,9 @@ func putProfile(addr address, s *source, points, ts int64) *profile {
 }
 
 func TestTopMaintenance(t *testing.T) {
-	saved, dirty, at := top, topDirty, topRefreshedAt
-	defer func() { top, topDirty, topRefreshedAt = saved, dirty, at }()
-	top = nil
+	saved, cursor := top, topCursor
+	defer func() { top, topCursor = saved, cursor }()
+	top, topCursor = nil, 0
 	const ts = 1000
 	for i := 1; i <= MaxTop; i++ {
 		updateTop(testAddr("a"+itoa(int64(i))), int64(i)*renown.Milli, ts)
@@ -147,18 +147,12 @@ func TestTopMaintenance(t *testing.T) {
 	if len(top) != MaxTop || inTop(testAddr("zero")) {
 		t.Fatalf("top size = %d, zero inserted = %v", len(top), inTop(testAddr("zero")))
 	}
-	// Within TopRefreshInterval snapshots are trusted: 1 milli-point does
-	// not beat the lowest snapshot (1 point).
-	topDirty, topRefreshedAt = false, ts
-	updateTop(testAddr("low"), 1, ts+TopRefreshInterval-1)
-	if inTop(testAddr("low")) {
-		t.Fatal("newcomer beat a fresh snapshot")
-	}
-	// After the interval the 50 entries (no profile, score 0) are
-	// recomputed, so the stale snapshots cannot keep the newcomer out.
-	updateTop(testAddr("low"), 1, ts+TopRefreshInterval)
-	if !inTop(testAddr("low")) || len(top) != MaxTop || topRefreshedAt != ts+TopRefreshInterval {
-		t.Fatal("stale snapshots kept a newcomer out")
+	// The entries have no profile, so their live score is 0: the re-scored
+	// candidate loses its slot to a 1 milli-point newcomer at once, and the
+	// rolling refresh advanced by TopRefreshBatch.
+	updateTop(testAddr("low"), 1, ts)
+	if !inTop(testAddr("low")) || len(top) != MaxTop || topCursor != TopRefreshBatch {
+		t.Fatalf("stale snapshot kept a newcomer out (cursor %d)", topCursor)
 	}
 	updateTop(testAddr("low"), 7, ts)
 	for _, e := range top {
@@ -169,9 +163,9 @@ func TestTopMaintenance(t *testing.T) {
 }
 
 func TestTopRevokedEviction(t *testing.T) {
-	saved, dirty, at := top, topDirty, topRefreshedAt
-	defer func() { top, topDirty, topRefreshedAt = saved, dirty, at }()
-	top = nil
+	saved, cursor := top, topCursor
+	defer func() { top, topCursor = saved, cursor }()
+	top, topCursor = nil, 0
 	const ts = 1000
 	good := newTestSource(3001, TierVerified)
 	bad := newTestSource(3002, TierVerified)
@@ -186,17 +180,113 @@ func TestTopRevokedEviction(t *testing.T) {
 	p := putProfile(whale, bad, 100*renown.Milli, ts)
 	updateTop(whale, computeScore(whale, p, ts).total, ts)
 	addrs = append(addrs, whale)
-	// Revoking marks the board dirty, so the next eviction refreshes it
-	// even right after a refresh.
+	// After a revoke the whale's snapshot is stale-high. The rolling
+	// refresh reaches it within MaxTop/TopRefreshBatch newcomers, and no
+	// verified member (fresh score above the newcomer) is evicted meanwhile.
 	bad.tier = TierRevoked
-	topDirty, topRefreshedAt = true, ts
 	newcomer := testAddr("newcomer")
-	updateTop(newcomer, renown.Milli, ts)
+	calls := 0
+	for ; calls < MaxTop/TopRefreshBatch+1 && !inTop(newcomer); calls++ {
+		updateTop(newcomer, renown.Milli, ts)
+	}
 	if inTop(whale) || !inTop(newcomer) {
-		t.Fatalf("revoked whale kept its slot: whale=%v newcomer=%v", inTop(whale), inTop(newcomer))
+		t.Fatalf("revoked whale kept its slot after %d calls: whale=%v newcomer=%v", calls, inTop(whale), inTop(newcomer))
+	}
+	for _, a := range addrs[:len(addrs)-1] {
+		if !inTop(a) {
+			t.Fatalf("verified member %s evicted", a)
+		}
 	}
 	for _, a := range addrs {
 		profiles.Remove(a.String())
+	}
+}
+
+// fillTop puts MaxTop real profiles (10 points each from a verified source)
+// on an empty board and returns their addresses and shared fresh score.
+func fillTop(t *testing.T, prefix string, srcID int, ts int64) ([]address, int64) {
+	src := newTestSource(srcID, TierVerified)
+	var addrs []address
+	var fresh int64
+	for i := 0; i < MaxTop; i++ {
+		a := testAddr(prefix + itoa(int64(i)))
+		p := putProfile(a, src, 10*renown.Milli, ts)
+		fresh = computeScore(a, p, ts).total
+		updateTop(a, fresh, ts)
+		addrs = append(addrs, a)
+	}
+	if len(top) != MaxTop || fresh <= 2 {
+		t.Fatalf("fillTop: size %d fresh %d", len(top), fresh)
+	}
+	return addrs, fresh
+}
+
+func TestTopLowSnapshotKeepsSlot(t *testing.T) {
+	saved, cursor := top, topCursor
+	defer func() { top, topCursor = saved, cursor }()
+	top, topCursor = nil, 0
+	const ts = 1000
+	addrs, fresh := fillTop(t, "lo", 3501, ts)
+	defer func() {
+		for _, a := range addrs {
+			profiles.Remove(a.String())
+		}
+	}()
+	// Member 10 (outside the first rolling batch) has a snapshot far below
+	// its fresh score, e.g. it registered a name since its last attestation.
+	const victim = 10
+	top[victim].snap = 1
+	newcomer := testAddr("lo-newcomer")
+	updateTop(newcomer, fresh-1, ts)
+	if !inTop(addrs[victim]) {
+		t.Fatal("member with a too-low snapshot was evicted")
+	}
+	if inTop(newcomer) {
+		t.Fatal("newcomer below every fresh score took a slot")
+	}
+	if top[victim].snap != fresh {
+		t.Fatalf("victim snapshot not re-scored: %d, want %d", top[victim].snap, fresh)
+	}
+	// A newcomer above the fresh scores still gets in.
+	updateTop(newcomer, fresh+1, ts)
+	if !inTop(newcomer) || len(top) != MaxTop {
+		t.Fatalf("higher newcomer rejected (size %d)", len(top))
+	}
+}
+
+func TestTopCursorWraps(t *testing.T) {
+	saved, cursor := top, topCursor
+	defer func() { top, topCursor = saved, cursor }()
+	top, topCursor = nil, 0
+	const ts = 1000
+	addrs, fresh := fillTop(t, "wr", 3601, ts)
+	defer func() {
+		for _, a := range addrs {
+			profiles.Remove(a.String())
+		}
+	}()
+	// Stale-high snapshots everywhere; a 1 milli-point newcomer never
+	// competes, so each call only advances the rolling refresh.
+	for i := range top {
+		top[i].snap = fresh + 999
+	}
+	rounds := MaxTop / TopRefreshBatch
+	for i := 0; i < rounds; i++ {
+		updateTop(testAddr("wr-newcomer"), 1, ts)
+	}
+	for i, e := range top {
+		if e.snap != fresh {
+			t.Fatalf("entry %d not refreshed after %d calls: %d", i, rounds, e.snap)
+		}
+	}
+	// The next call wraps the cursor back to the start of the board.
+	top[0].snap = fresh + 999
+	updateTop(testAddr("wr-newcomer"), 1, ts)
+	if top[0].snap != fresh || topCursor != TopRefreshBatch {
+		t.Fatalf("cursor did not wrap: snap %d cursor %d", top[0].snap, topCursor)
+	}
+	if inTop(testAddr("wr-newcomer")) {
+		t.Fatal("low newcomer took a slot")
 	}
 }
 

@@ -63,7 +63,6 @@ func SetSourceTier(cur realm, path, tier string) {
 		verifiedCount--
 	}
 	s.tier = tier
-	topDirty = true
 	if tier == TierVerified && s.weight == 0 {
 		s.weight = params.DefaultWeight
 	}
@@ -83,7 +82,6 @@ func SetWeight(cur realm, path string, weight, capPoints int64) {
 	}
 	s.weight = weight
 	s.capacity = capPoints * renown.Milli
-	topDirty = true
 	logAction("SourceWeightChanged", "source", path, "weight", itoa(weight), "cap", itoa(capPoints))
 }
 

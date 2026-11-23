@@ -64,6 +64,26 @@ Measured with `gno test -v` (difference between filetests with and without the c
 | `lounge.Sign`, first entry | ~1.0M | +1.0 KB (~0.10 GNOT) |
 | `lounge.Sign`, next entry | ~0.8M | +0.7 KB (~0.07 GNOT) |
 
+On a real chain each call also pays to load packages from the store, mostly `r/sys/users`. On a
+local gnodev chain, calls that touch Barkeep used 15–26M gas (see
+[docs/ALGORITHM.md](docs/ALGORITHM.md#on-a-chain-local-gnodev-same-toolchain-scriptsseed)).
+Send them with `-gas-wanted 50000000 -gas-fee 50000ugnot`.
+
+## Local end-to-end with gnodev
+
+```bash
+gnodev local -add-account g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p=1000000000000ugnot \
+  -paths gno.land/r/sys/namereg/v0,gno.land/r/sys/users        # chain-id "dev", RPC 127.0.0.1:26657
+ADMIN_PASSPHRASE="…" scripts/seed/seed.sh                      # 10 demo personas, quests, polls, votes, lounge
+```
+
+The seed script is idempotent: each step checks chain state first. It is configured through
+`CHAIN_ID`, `REMOTE` and `REALM_BASE` and writes `scripts/seed/personas.json`. Persona keys
+go to `scripts/seed/.keys/` (gitignored, empty passphrase, testnet only). The admin key
+(`barkeep-deployer`) verifies the demo sources and funds the personas, which is why gnodev
+premines it. Preloading `r/sys/namereg/v0` at genesis lets it register as an `r/sys/users`
+controller, so personas can take `nym-…` names.
+
 ## Test
 
 ```bash

@@ -189,11 +189,13 @@ func (p *profile) pushRecent(e recentEntry) {
 }
 
 // updateTop keeps the top-MaxTop addresses by score snapshot. Snapshots go
-// stale as points decay, sources are revoked or names are registered, so
-// before a full board evicts anyone every entry is recomputed at now when
-// an admin changed a source since the last refresh (topDirty) or the last
-// refresh is TopRefreshInterval old. In between, decay moves snapshots by
-// at most ~0.1%, while a full refresh costs ~MaxTop score computations.
+// stale as points decay, sources are revoked or names are registered. A
+// full refresh costs MaxTop score computations (~70M gas on chain, each
+// one reads r/sys/users), so the work is bounded per call instead: when a
+// newcomer meets a full board, TopRefreshBatch snapshots are refreshed in
+// rotation (every entry within MaxTop/TopRefreshBatch newcomers), and the
+// eviction candidate is re-scored before it is replaced, so a snapshot
+// that is too low never costs a member its slot.
 func updateTop(addr address, score, now int64) {
 	for i := range top {
 		if top[i].addr == addr {
@@ -208,20 +210,32 @@ func updateTop(addr address, score, now int64) {
 		top = append(top, topEntry{addr: addr, snap: score})
 		return
 	}
-	refresh := topDirty || now-topRefreshedAt >= TopRefreshInterval
-	if refresh {
-		topDirty, topRefreshedAt = false, now
+	for j := 0; j < TopRefreshBatch; j++ {
+		topCursor %= len(top)
+		refreshSnap(topCursor, now)
+		topCursor++
 	}
+	// Only a candidate whose snapshot was just recomputed is evicted.
+	worst, fresh := worstTop(), -1
+	for j := 0; j < TopConfirmMax && worst != fresh && score > top[worst].snap; j++ {
+		refreshSnap(worst, now)
+		fresh, worst = worst, worstTop()
+	}
+	if worst == fresh && score > top[worst].snap {
+		top[worst] = topEntry{addr: addr, snap: score}
+	}
+}
+
+func refreshSnap(i int, now int64) {
+	top[i].snap = computeScore(top[i].addr, profileOf(top[i].addr), now).total
+}
+
+func worstTop() int {
 	worst := 0
 	for i := range top {
-		if refresh {
-			top[i].snap = computeScore(top[i].addr, profileOf(top[i].addr), now).total
-		}
 		if top[i].snap < top[worst].snap {
 			worst = i
 		}
 	}
-	if score > top[worst].snap {
-		top[worst] = topEntry{addr: addr, snap: score}
-	}
+	return worst
 }
