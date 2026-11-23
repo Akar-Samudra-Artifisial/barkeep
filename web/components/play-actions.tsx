@@ -87,37 +87,23 @@ export function MyStanding() {
   );
 }
 
-const QUESTS = [
-  { id: "cellar-rats", label: "Clear the cellar rats" },
-  { id: "lost-tankard", label: "Find the lost tankard" },
-  { id: "bard-night", label: "Host bard night" },
-];
+// questboard/v0 Complete(id) ignores id and attests 10 units on every call,
+// with no per-address limit. Any string works; this one is only a label.
+const QUEST_ID = "demo";
+const QUEST_UNITS = 10;
 
 export function QuestAction() {
-  const [quest, setQuest] = useState(QUESTS[0].id);
   const { phase, send } = useRealmCall(REALMS.questboard, "Complete");
   const busy = phase.kind === "signing";
   return (
     <div className="stack">
-      <div className="field">
-        <span className="label" id="quest-label">
-          Quest
-        </span>
-        <div className="segmented" role="group" aria-labelledby="quest-label">
-          {QUESTS.map((q) => (
-            <button key={q.id} type="button" aria-pressed={quest === q.id} onClick={() => setQuest(q.id)}>
-              {q.label}
-            </button>
-          ))}
-        </div>
-      </div>
       <div>
-        <button type="button" className="btn primary" disabled={busy} onClick={() => send([quest])}>
-          Complete quest
+        <button type="button" className="btn primary" disabled={busy} onClick={() => send([QUEST_ID])}>
+          Complete a quest (repeatable demo, +{QUEST_UNITS} units)
         </button>
       </div>
-      <TxStatus phase={phase} doneText="Quest completed." />
-      <TxFallback pkgPath={REALMS.questboard} func="Complete" args={[quest]} />
+      <TxStatus phase={phase} doneText={`Quest completed, +${QUEST_UNITS} units attested.`} />
+      <TxFallback pkgPath={REALMS.questboard} func="Complete" args={[QUEST_ID]} />
     </div>
   );
 }

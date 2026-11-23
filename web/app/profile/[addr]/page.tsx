@@ -16,7 +16,7 @@ import {
   utcDate,
 } from "@/lib/format";
 import { getProfile, isAddress, safeDecode } from "@/lib/gno";
-import { TIER_MIN } from "@/lib/renown";
+import { DEFAULT_PARAMS, TIER_MIN } from "@/lib/renown";
 import { CATEGORIES, TIERS, type Profile, type Tier } from "@/lib/types";
 
 export async function generateMetadata({ params }: PageProps<"/profile/[addr]">): Promise<Metadata> {
@@ -56,16 +56,68 @@ function ProfileSkeleton() {
 
 const TIER_FLOOR: Record<Tier, number> = { Stranger: 0, ...TIER_MIN };
 
-function Ladder({ score, tier }: { score: number; tier: Tier }) {
+function TierProgress({ p }: { p: Profile }) {
+  const { score, tier } = p;
   const next = TIERS.find((t) => TIER_FLOOR[t] > score);
+  const halfLifeDays = DEFAULT_PARAMS.halfLife / 86400;
+  const ramping = p.firstSeen > 0 && p.multipliers.maturity < 1;
+  const matureAt = p.firstSeen + DEFAULT_PARAMS.maturityPeriod;
+  const maturityDays = DEFAULT_PARAMS.maturityPeriod / 86400;
+
+  if (!next) {
+    return (
+      <div className="tier-progress">
+        <p className="tier-progress-head">
+          <strong>Top tier reached.</strong> <span className="muted">{tier} is the highest rung.</span>
+        </p>
+        <p className="small muted">Points halve every {halfLifeDays} days without new activity, so keep attesting to stay here.</p>
+      </div>
+    );
+  }
+
+  const floor = TIER_FLOOR[tier];
+  const target = TIER_FLOOR[next];
+  const pct = Math.min(100, Math.max(0, ((score - floor) / (target - floor)) * 100));
+  return (
+    <div className="tier-progress">
+      <p className="tier-progress-head">
+        <strong>
+          {fmtInt(target - score)} {target - score === 1 ? "point" : "points"} to {next}
+        </strong>{" "}
+        <span className="muted">
+          {fmtInt(score)} of {fmtInt(target)}
+        </span>
+      </p>
+      <div
+        className="bar-track"
+        role="progressbar"
+        aria-label={`Progress from ${tier} to ${next}`}
+        aria-valuemin={floor}
+        aria-valuemax={target}
+        aria-valuenow={score}
+        aria-valuetext={`${fmtInt(score)} of ${fmtInt(target)} points`}
+      >
+        <div className="bar-fill" style={{ width: `${pct}%` }} />
+      </div>
+      <p className="small muted">
+        {ramping
+          ? `Maturity is ${fmtMult(p.multipliers.maturity)} and ramps to ×1 by ${utcDate(matureAt)}, ${maturityDays} days after first seen. `
+          : ""}
+        Points halve every {halfLifeDays} days without new activity.
+      </p>
+    </div>
+  );
+}
+
+function Ladder({ p }: { p: Profile }) {
+  const { score, tier } = p;
   return (
     <section className="panel" aria-labelledby="ladder-h">
       <header>
         <h2 id="ladder-h">Tier ladder</h2>
-        <span className="meta">
-          {next ? `${fmtInt(TIER_FLOOR[next] - score)} points to ${next}` : "Top tier reached"}
-        </span>
+        <span className="meta">thresholds from renown/v0</span>
       </header>
+      <TierProgress p={p} />
       <ol className="ladder">
         {TIERS.map((t) => (
           <li
@@ -237,7 +289,7 @@ async function ProfileView({ addr }: { addr: string }) {
           </dl>
         </section>
 
-        <Ladder score={p.score} tier={p.tier} />
+        <Ladder p={p} />
 
         {fresh ? (
           <Empty>

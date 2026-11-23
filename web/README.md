@@ -24,7 +24,7 @@ pnpm typecheck && pnpm lint && pnpm build
 | `NEXT_PUBLIC_CHAIN_ID` | `onyx-1` | Chain Adena must be on; the app asks Adena to switch or add it |
 | `NEXT_PUBLIC_RPC_URL` | `https://rpc.onyx.testnets.gno.land:443` | Shown in gnokey commands, passed to Adena `AddNetwork` |
 | `NEXT_PUBLIC_GNOWEB_URL` | `https://onyx.testnets.gno.land` | gnoweb links and `$help` fallbacks |
-| `NEXT_PUBLIC_REALM_BASE` | `gno.land/r/<ns>/dev1/{name}` | Realm path pattern; for the final deploy use `gno.land/r/<ns>/{name}/v0` |
+| `NEXT_PUBLIC_REALM_BASE` | `gno.land/r/<ns>/{name}/v0` | Realm path pattern (`{name}` = barkeep, questboard, townhall, lounge) |
 
 All realm paths come from `lib/config.ts`.
 

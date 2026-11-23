@@ -178,6 +178,11 @@ td .sub { display: block; font-size: var(--fs-small); color: var(--muted); }
 .rung[data-reached="true"] span { color: var(--pill-accent-ink); }
 .rung[data-current="true"] { background: var(--accent); color: var(--primary-ink); }
 .rung[data-current="true"] span { color: var(--primary-ink); }
+.tier-progress { display: grid; gap: 8px; margin-bottom: 12px; }
+.tier-progress-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.tier-progress-head strong { font-weight: 600; }
+.tier-progress .bar-fill { background: var(--accent); }
+.panel .tier-progress p + p { margin-top: 0; }
 
 /* the tab: a score receipt, base × maturity × diversity × identity */
 .tab { display: grid; gap: 0; }

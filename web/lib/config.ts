@@ -1,12 +1,12 @@
-// Single place for chain, realm paths and data source. Switching from the
-// dev1 deployment to the final /v0 realms is one env change:
-//   dev1: NEXT_PUBLIC_REALM_BASE=gno.land/r/<ns>/dev1/{name}
-//   v0:   NEXT_PUBLIC_REALM_BASE=gno.land/r/<ns>/{name}/v0
+// Single place for chain, realm paths and data source. The default targets
+// the final /v0 realms (deployments/onyx-v0.md), e.g. gno.land/r/<ns>/barkeep/v0.
+// Another layout is one env change; "{name}" is replaced by the realm name:
+//   NEXT_PUBLIC_REALM_BASE=gno.land/r/<ns>/{name}/v0   (default)
 // A base without "{name}" gets "/{name}" appended.
 
 export const NAMESPACE = "g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p";
 
-const DEFAULT_REALM_BASE = `gno.land/r/${NAMESPACE}/dev1/{name}`;
+const DEFAULT_REALM_BASE = `gno.land/r/${NAMESPACE}/{name}/v0`;
 
 export const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID || "onyx-1";
 export const CHAIN_NAME = process.env.NEXT_PUBLIC_CHAIN_NAME || "Gno.land Onyx testnet";

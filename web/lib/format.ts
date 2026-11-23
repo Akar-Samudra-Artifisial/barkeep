@@ -4,7 +4,7 @@ export function shortAddr(addr: string, head = 8, tail = 6): string {
   return addr.length > head + tail + 1 ? `${addr.slice(0, head)}…${addr.slice(-tail)}` : addr;
 }
 
-/** gno.land/r/<ns>/dev1/questboard → r/…/dev1/questboard, keeping the readable tail. */
+/** gno.land/r/<ns>/questboard/v0 → r/…/questboard/v0, keeping the readable tail. */
 export function shortPath(path: string): string {
   const p = path.replace(/^gno\.land\//, "");
   const parts = p.split("/");

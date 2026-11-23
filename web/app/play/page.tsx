@@ -31,7 +31,10 @@ export default function PlayPage() {
                 <QuestCount />
               </Suspense>
             </header>
-            <p className="muted mb">Complete a quest and the board attests 10 contribution units to your address.</p>
+            <p className="muted mb">
+              One repeatable demo quest: every call attests 10 contribution units to your address. The board ignores the
+              quest id and has no per-address limit, so it is a demo source, not a sybil-resistant one.
+            </p>
             <QuestAction />
           </section>
 

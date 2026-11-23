@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 import * as R from "../lib/renown.ts";
 
 const NS = "g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p";
-const DEV = `gno.land/r/${NS}/dev1`;
+const realm = (name) => `gno.land/r/${NS}/${name}/v0`;
 const out = join(dirname(fileURLToPath(import.meta.url)), "..", "fixtures");
 mkdirSync(out, { recursive: true });
 
@@ -57,8 +57,8 @@ const P = R.DEFAULT_PARAMS;
 // ---------- sources ----------
 const SAMPLE_NS = addr(); // a second sample namespace for third-party sources
 const sources = [
-  { path: `${DEV}/questboard`, category: "contribution", desc: "Quests for adventurers", tier: "verified", weight: 1000, cap: 100, paused: false, registeredAt: NOW - 34 * DAY },
-  { path: `${DEV}/townhall`, category: "governance", desc: "Town hall polls: one attestation per vote", tier: "verified", weight: 1000, cap: 100, paused: false, registeredAt: NOW - 33 * DAY },
+  { path: realm("questboard"), category: "contribution", desc: "Quests for adventurers", tier: "verified", weight: 1000, cap: 100, paused: false, registeredAt: NOW - 34 * DAY },
+  { path: realm("townhall"), category: "governance", desc: "Town hall polls: one attestation per vote", tier: "verified", weight: 1000, cap: 100, paused: false, registeredAt: NOW - 33 * DAY },
   { path: `gno.land/r/${SAMPLE_NS}/workshop`, category: "building", desc: "Merged pull requests in the tavern workshop", tier: "verified", weight: 1500, cap: 150, paused: false, registeredAt: NOW - 29 * DAY },
   { path: `gno.land/r/${SAMPLE_NS}/hearth`, category: "community", desc: "Hosts and helpers of tavern meetups", tier: "verified", weight: 800, cap: 100, paused: false, registeredAt: NOW - 25 * DAY },
   { path: `gno.land/r/${SAMPLE_NS}/ledgerswap`, category: "defi", desc: "Swaps settled on the tavern exchange, one per day", tier: "verified", weight: 500, cap: 50, paused: true, registeredAt: NOW - 21 * DAY },

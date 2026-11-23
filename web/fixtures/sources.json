@@ -4,7 +4,7 @@
   "items": [
     {
       "id": 1,
-      "path": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/questboard",
+      "path": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/questboard/v0",
       "category": "contribution",
       "desc": "Quests for adventurers",
       "tier": "verified",
@@ -17,7 +17,7 @@
     },
     {
       "id": 2,
-      "path": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/dev1/townhall",
+      "path": "gno.land/r/g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p/townhall/v0",
       "category": "governance",
       "desc": "Town hall polls: one attestation per vote",
       "tier": "verified",

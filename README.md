@@ -24,6 +24,16 @@ Namespace: `g1dmwvymew9ku97tp30xka70w4tnn8cydh2tct9p` (shortened to `<ns>` below
 
 Filetests: `questboard/v0/filetests/z1_flow` (verify, pause, cap, decay, identity, revoke) and `townhall/v0/filetests/z1_demo` (quests raise the score, the lounge and the poll gate open at their thresholds, double votes are refused).
 
+## How it differs
+
+| | Typical on-chain reputation / single-realm points | Barkeep |
+|---|---|---|
+| Score source | Points kept inside the one realm that awards them | Attestations from many registered realms, merged into one score |
+| Source identity | Trusted caller list, signer or oracle | `cur.Previous().PkgPath()` set by the VM: no oracle, a realm cannot attest as another |
+| Algorithm | Logic inside the app, changes with it | Open, pure package `p/<ns>/renown/v0`, immutable per version |
+| Granularity | One number | Overall score plus five categories (`CategoryScoreOf`, `HasMinCategoryScore`) |
+| Anti-Sybil | Implicit or undocumented | Public rules: unverified sources weigh 0, per-source caps, decay, maturity, diversity, name bonus ([docs/ANTI-SYBIL.md](docs/ANTI-SYBIL.md)) |
+
 ## Integrate
 
 **Source realm**: register once, then attest whoever your realm rewards. New sources start unverified (weight 0) until the Barkeep admin verifies them.
@@ -73,6 +83,13 @@ On a real chain each call also pays to load packages from the store, mostly `r/s
 local gnodev chain, calls that touch Barkeep used 15–26M gas (see
 [docs/ALGORITHM.md](docs/ALGORITHM.md#on-a-chain-local-gnodev-same-toolchain-scriptsseed)).
 Send them with `-gas-wanted 50000000 -gas-fee 50000ugnot`.
+
+## Limitations
+
+Full list in [docs/ANTI-SYBIL.md](docs/ANTI-SYBIL.md). Two that matter for the demo realms:
+
+- `questboard/v0` ignores the quest `id` and has no per-address limit: the same address can call `Complete` repeatedly, 10 units each time (up to the source cap). The dashboard shows it as one repeatable demo action.
+- `townhall/v0` gates only `CreatePoll` (score ≥ 20, `townhall.gno:19`); `Vote` is open to every address by design, one vote per address per poll.
 
 ## Local end-to-end with gnodev
 
