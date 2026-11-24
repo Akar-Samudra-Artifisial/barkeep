@@ -18,6 +18,7 @@
 #   FUND_UGNOT        5000000   top-up target per persona
 #   GAS_WANTED        50000000   (Barkeep-touching calls measured 15-30M on gnodev)
 #   GAS_FEE           100000ugnot
+#   SEED_COUNT        10        seed only the first N personas (2..10)
 # Safety:
 #   SEED_ALLOW_REMOTE unset       the script refuses any CHAIN_ID other than "dev"
 #                                 before touching keys or sending a tx; set it to 1
@@ -104,6 +105,12 @@ PERSONAS=(
   "iris|nym-irisbloom109|1|-|-"
   "jules|-|2|1:2|-"
 )
+# SEED_COUNT keeps only the first N personas (ava and bram open the polls, so N >= 2).
+SEED_COUNT="${SEED_COUNT:-${#PERSONAS[@]}}"
+if ! [[ "$SEED_COUNT" =~ ^[0-9]+$ ]] || (( SEED_COUNT < 2 || SEED_COUNT > ${#PERSONAS[@]} )); then
+  die "SEED_COUNT must be 2..${#PERSONAS[@]} (got '$SEED_COUNT')"
+fi
+PERSONAS=("${PERSONAS[@]:0:SEED_COUNT}")
 POLLS=(
   "ava|Which realm should the tavern integrate next?|DeFi vault|Builder grants|Community events"
   "bram|Should verified sources get a higher cap?|Yes|No|Only after review"
